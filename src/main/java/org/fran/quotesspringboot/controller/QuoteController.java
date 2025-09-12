@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @RestController
 @Log
+@CrossOrigin(origins = "http://localhost:5173")
 public class QuoteController
 {
     private final QuoteService quoteService;

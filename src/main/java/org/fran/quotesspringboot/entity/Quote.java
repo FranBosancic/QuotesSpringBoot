@@ -17,17 +17,20 @@ public class Quote
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(columnDefinition = "TEXT")
     private String text;
     private String author;
     @Enumerated(EnumType.STRING)
     private QuoteSource quoteSource;
     @Column(updatable = false)
     private LocalDateTime dateAdded;
+    private LocalDateTime dateUpdated;
 
     @PrePersist
     public void prePersist()
     {
         dateAdded = LocalDateTime.now();
+        dateUpdated = dateAdded;
     }
 
 }

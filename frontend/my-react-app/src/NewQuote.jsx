@@ -45,7 +45,7 @@ function NewQuote() {
 
         <label className="label mt-4">Text</label>
         <textarea
-          className="textarea textarea-bordered w-full h-32 resize-y"
+          className="textarea textarea-bordered w-full h-30 resize-y"
           placeholder="Is fat"
           value={text}
           onChange={(e) => setText(e.target.value)}
@@ -56,6 +56,7 @@ function NewQuote() {
             value={quoteSource}
             onChange={(e) => setQuoteSource(e.target.value)}
           >
+            <option value="" disabled>Select source...</option>
             <option>Movie</option>
             <option>Book</option>
             <option>RealLife</option>

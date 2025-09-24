@@ -4,6 +4,7 @@ import org.fran.quotesspringboot.entity.Quote;
 import org.fran.quotesspringboot.repository.QuoteRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -69,6 +70,7 @@ public class QuoteService
                     Optional.ofNullable(quoteToBeUpdated.getText()).ifPresent(existingQuote::setText);
                     Optional.ofNullable(quoteToBeUpdated.getAuthor()).ifPresent(existingQuote::setAuthor);
                     Optional.ofNullable(quoteToBeUpdated.getQuoteSource()).ifPresent(existingQuote::setQuoteSource);
+                    existingQuote.setDateUpdated(LocalDateTime.now());
                     return quoteRepository.save(existingQuote);
                 }).orElseThrow(() -> new RuntimeException("Quote does not exist"));
     }
